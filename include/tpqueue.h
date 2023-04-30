@@ -1,11 +1,13 @@
 // Copyright 2022 NNTU-CS
 #ifndef INCLUDE_TPQUEUE_H_
 #define INCLUDE_TPQUEUE_H_
+#include <iostream>
+#include <string>
 
 template<typename T>
 class TPQueue {
   // реализация шаблона очереди с приоритетом на связанном списке
-private:
+ private:
     struct Node {
         T value;
         Node* next;
@@ -21,17 +23,10 @@ private:
         return node;
     }
 
-public:
+ public:
     TPQueue():head(nullptr), tail(nullptr) {}
 
     void push(const T& value) {
-        /*if (head && tail) {
-            tail->next = create(value);
-            tail = tail->next;
-        } else {
-            head = tail = create(value);
-        }*/
-
         if (head == nullptr) {
             head = tail = create(value);
         } else if (value.prior <= tail->value.prior) {
