@@ -57,7 +57,7 @@ class TPQueue {
         }
     }
 
-    const T& pop() {
+    T pop() {
         if (!head) {
             throw std::string("Queue is empty.");
         } else {
