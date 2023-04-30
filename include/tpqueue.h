@@ -47,10 +47,12 @@ class TPQueue {
                 temp->next->prev = node;
                 node->next = temp->next;
                 temp->next = node;
+                node->prev = temp;
             } else if (temp == head && temp->value.prior < value.prior) {
                 head->prev = create(value);
                 head = head->prev;
                 head->next = temp;
+                temp->prev = head;
             }
         }
     }
